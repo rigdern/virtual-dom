@@ -39,6 +39,9 @@ function createElement(vnode, opts) {
         var childNode = createElement(children[i], opts)
         if (childNode) {
             node.appendChild(childNode)
+            if (isWidget(children[i])) {
+                children[i].initComplete();
+            }
         }
     }
 

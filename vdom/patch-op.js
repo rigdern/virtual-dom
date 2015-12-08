@@ -93,7 +93,9 @@ function widgetPatch(domNode, leftVNode, widget, renderOptions) {
         parentNode.replaceChild(newNode, domNode)
     }
 
-    if (!updating) {
+    if (updating) {
+        widget.updateComplete();
+    } else {
         destroyWidget(domNode, leftVNode)
     }
 
